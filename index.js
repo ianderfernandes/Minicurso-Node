@@ -21,7 +21,7 @@ app.post("/formulario", async (req, res) => {
         }
     })
     return res.status(201).send("Usuário criado com sucesso");
-});
+}); 
 
 app.get("/usuarios", async (req, res) => {
     const usuarios = await prisma.usuario.findMany()
@@ -29,6 +29,6 @@ app.get("/usuarios", async (req, res) => {
     return res.status(200).send(usuarios)
 });
 
-app.listen(3030, ()=> {
+app.listen(process.env.PORT || 3030, ()=> {
     console.log('Servidor funcionando')
 });
